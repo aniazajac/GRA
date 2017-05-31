@@ -84,6 +84,7 @@
             this.score1.Size = new System.Drawing.Size(30, 34);
             this.score1.TabIndex = 3;
             this.score1.Text = "0";
+            this.score1.Click += new System.EventHandler(this.score1_Click);
             // 
             // score2
             // 
@@ -107,7 +108,9 @@
             this.Controls.Add(this.player2);
             this.Controls.Add(this.player1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "PingPong";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.player1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
