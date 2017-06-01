@@ -62,7 +62,14 @@ namespace Gra
                 P1Score++;
                 ball.Location = new Point(this.Width / 2, this.Height / 2);
             }
-
+            if (ball.Location.X > player2.Location.X && ball.Location.X + ball.Width < player2.Location.X + player2.Width && ball.Location.Y + ball.Height > player2.Location.Y)
+            {
+                BSpeedY *= -1;
+            }
+            if (ball.Location.X > player1.Location.X && ball.Location.X + ball.Width < player1.Location.X + player1.Width && ball.Location.Y < player1.Location.Y + player1.Height)
+            {
+                BSpeedY *= -1;
+            }
 
             score1.Text = P1Score.ToString();
             score2.Text = P2Score.ToString();
