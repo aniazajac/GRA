@@ -18,8 +18,11 @@ namespace Gra
         int Player1Vel;
         int Player2Vel;
 
-        int BSpeedX = 5;
-        int BSpeedY = 5;
+        int BSpeedX = 3;
+        int BSpeedY = 3;
+
+        int P1Score;
+        int P2Score;
 
 
         bool pause = false;
@@ -48,6 +51,21 @@ namespace Gra
                 player1.Location = new Point(player1.Location.X + Player1Vel, player1.Location.Y);
                 player2.Location = new Point(player2.Location.X + Player2Vel, player2.Location.Y);
             }
+            if (ball.Location.Y < 0)
+            {
+                P2Score++;
+                ball.Location = new Point(this.Width / 2, this.Height / 2);
+            }
+
+            if(ball.Location.Y > this.Height)
+            {
+                P1Score++;
+                ball.Location = new Point(this.Width / 2, this.Height / 2);
+            }
+
+
+            score1.Text = P1Score.ToString();
+            score2.Text = P2Score.ToString();
         }
 
         private void score1_Click(object sender, EventArgs e)
@@ -73,6 +91,19 @@ namespace Gra
             {
                 Player2Vel = - PlayerSpeed;
             }
+            else if(e.KeyCode == Keys.P)
+            {
+                if (!pause)
+                {
+                    pause = true;
+                }
+                else if (pause)
+                {
+                    pause = false;
+                }
+
+            }
+
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
