@@ -70,7 +70,14 @@ namespace Gra
             {
                 BSpeedY *= -1;
             }
-
+            if(ball.Location.X - ball.Width < 0)
+            {
+                BSpeedX *= -1;
+            }
+            if(ball.Location.X >this.Width - 2*ball.Width)
+            {
+                BSpeedX *= -1;
+            }
             score1.Text = P1Score.ToString();
             score2.Text = P2Score.ToString();
         }
