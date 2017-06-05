@@ -12,14 +12,15 @@ namespace Gra
 {
     public partial class Form1 : Form
     {
-        int PlayerSpeed = 7;
-        int BallSpeed;
+
+        int PlayerSpeed = 6;
+    
 
         int Player1Vel;
         int Player2Vel;
 
-        int BSpeedX = 3;
-        int BSpeedY = 3;
+        int BSpeedX = 2;
+        int BSpeedY = 2;
 
         int P1Score;
         int P2Score;
@@ -139,5 +140,63 @@ namespace Gra
                 Player2Vel = 0;
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer.Stop();
+    
+            Form okno = new Form();
+            okno.Width = 600;
+            okno.Height = 400;
+            okno.Text = "Dane graczy";
+            okno.BackColor = Color.LightBlue;
+
+            Label etykieta = new Label();
+            etykieta.Text = "Wprowadż imię pierwszego gracza ";
+            etykieta.Font = new System.Drawing.Font("Arial", 3, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+            etykieta.Location = new Point(200, 100);
+            etykieta.Width = 200;
+            etykieta.Height = 50;
+
+            TextBox pole_tekstowe = new TextBox();
+            pole_tekstowe.Width = 200;
+            pole_tekstowe.Location = new Point(200, 120);
+
+            Label etykieta2 = new Label();
+            etykieta2.Text = "Wprowadż imię drugiego gracza ";
+            etykieta2.Font = new System.Drawing.Font("Arial", 3, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+            etykieta2.Location = new Point(200, 160);
+            etykieta2.Width = 200;
+            etykieta2.Height = 50;
+
+            TextBox pole_tekstowe2 = new TextBox();
+            pole_tekstowe2.Width = 200;
+            pole_tekstowe2.Location = new Point(200, 180);
+
+            Button przycisk = new Button();
+            przycisk.Width = 100;
+            przycisk.Height = 100;
+            przycisk.Location = new Point(250, 250);
+            przycisk.Text = "Graj!";
+            przycisk.Font = new System.Drawing.Font("Arial", 4, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
+            przycisk.BackColor = Color.Red;
+            przycisk.DialogResult = System.Windows.Forms.DialogResult.OK;
+
+
+            okno.Controls.Add(pole_tekstowe);
+            okno.Controls.Add(etykieta);
+            okno.Controls.Add(pole_tekstowe2);
+            okno.Controls.Add(etykieta2);
+            okno.Controls.Add(przycisk);
+
+            okno.ShowDialog();
+            timer.Start();
+          
+
+            
+        }
+        
+
     }
 }
+

@@ -35,6 +35,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.score1 = new System.Windows.Forms.Label();
             this.score2 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
@@ -101,14 +102,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
-            this.ClientSize = new System.Drawing.Size(730, 315);
+            this.ClientSize = new System.Drawing.Size(736, 326);
             this.Controls.Add(this.score2);
             this.Controls.Add(this.score1);
             this.Controls.Add(this.ball);
             this.Controls.Add(this.player2);
             this.Controls.Add(this.player1);
+            this.MaximumSize = new System.Drawing.Size(752, 365);
+            this.MinimumSize = new System.Drawing.Size(752, 365);
             this.Name = "Form1";
             this.Text = "PingPong";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.player1)).EndInit();
@@ -127,6 +131,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label score1;
         private System.Windows.Forms.Label score2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
